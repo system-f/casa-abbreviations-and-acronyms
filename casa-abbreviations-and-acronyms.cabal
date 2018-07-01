@@ -6,7 +6,7 @@ synopsis:              CASA Abbreviations and Acronyms
 description:       
   <<http://i.imgur.com/uZnp9ke.png>>
   .
-  CASA Abbreviations and Acronym
+  CASA Abbreviations and Acronyms
   .
   https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms
 license:               BSD3
@@ -35,7 +35,7 @@ library
                        , Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Spacing
                        , Data.Aviation.Casa.AbbreviationsAndAcronyms.Search
                        
-  build-depends:         base              >= 4.8     && < 4.11
+  build-depends:         base              >= 4.8     && < 4.12
                        , lens              >= 4.15    && < 4.17
                        , containers        >= 0.5     && < 0.6
                        , fuzzy             >= 0.1.0.0 && < 0.2
@@ -57,7 +57,7 @@ executable casa-abbreviations-and-acronyms
 
   main-is:             Main.hs
 
-  build-depends:        base                 >= 4.8     && < 4.11                    
+  build-depends:        base                 >= 4.8     && < 4.12
                       , lens                 >= 4.15    && < 4.17
                       , fuzzy                >= 0.1.0.0 && < 0.2
                       , optparse-applicative >= 0.13.2  && < 0.15
