@@ -1,6 +1,7 @@
 0.0.4
 
 * Make acronym name upper-case.
+* base < 4.12.
 
 0.0.3
 
