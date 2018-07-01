@@ -49,7 +49,6 @@ library
   default-language:    Haskell2010
 
   ghc-options:         -Wall
-                       -ddump-splices
 
 executable casa-abbreviations-and-acronyms
   default-language:    Haskell2010
