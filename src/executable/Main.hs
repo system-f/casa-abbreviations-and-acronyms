@@ -21,7 +21,7 @@ import Data.Foldable(foldr)
 import Data.Function(($))
 import Data.Functor((<$>), fmap)
 import Data.Int(Int)
-import Data.List(filter)
+import Data.List(filter, take)
 import Data.Maybe(Maybe(Just, Nothing), maybe, maybeToList)
 import Data.Monoid(Monoid(mempty))
 import Data.Ord(Ord((>=), (>)), max, min)
@@ -41,12 +41,12 @@ main =
         execParser
           (info ((parserOptions :: Parser (Options [] ShowAcronym)) <**> helper) (
             fullDesc <>
-            header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
+            header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms 0.0.3 <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
           )
         )
   in  do  opts <- execopts
           case opts of
-            Options clrs rndr (MatchField fz ex) typ (FieldSpacing mn xn mm xm ms xs mr xr) term ->
+            Options clrs rndr maxr (MatchField fz ex) typ (FieldSpacing mn xn mm xm ms xs mr xr) term ->
               let acro =
                     let match =
                           case typ of
@@ -70,10 +70,12 @@ main =
                       , (sourceSpacing, ms, xs)
                       , (scoreSpacing, mr, xr)
                       ]
+                  acro' =
+                    maybe id take maxr acro
                   out =
                     runConfig
-                      (rndr acro)
-                      (space $ Config clrs (exactWidthSpacing acro))
+                      (rndr acro')
+                      (space $ Config clrs (exactWidthSpacing acro'))
               in  putStrLn out
 
 data ShowAcronym =
@@ -237,11 +239,12 @@ data Options t a =
   Options
     Colours -- no colours
     (t a -> ConfigReader String) -- no header
+    (Maybe Int) -- maximum results
     MatchField
     MatchType
     FieldSpacing
     String -- the search term
-  
+
 parserOptions ::
   (HasShowScore a, HasAcronym a, Traversable t) =>
   Parser (Options t a)
@@ -266,6 +269,22 @@ parserOptions =
           help "turn off the header in the output"
         )
     )
+    <*>
+    option
+      (
+        maybeReader
+          (\s -> case reads s of
+                    (n, _):_ ->
+                      Just (Just n)
+                    [] ->
+                      Nothing)
+      )
+      (
+        short 'x' <>
+        long "max-results" <>
+        value Nothing <>
+        help "maximum number of results"
+      )
     <*>
     parserMatchField
     <*>

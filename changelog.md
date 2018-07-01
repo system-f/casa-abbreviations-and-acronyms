@@ -1,3 +1,8 @@
+0.0.3
+
+* Add -x|--max-results option.
+* Add version number to header.
+
 0.0.2
 
 * Use nix.

@@ -3,7 +3,7 @@
 }:
 mkDerivation {
   pname = "casa-abbreviations-and-acronyms";
-  version = "0.0.2";
+  version = "0.0.3";
   src = ./.;
   isLibrary = true;
   isExecutable = true;
