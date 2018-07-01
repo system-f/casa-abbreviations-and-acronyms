@@ -6,9 +6,10 @@ module Main(
 
 import Control.Applicative((<*>), (<**>))
 import Control.Category((.), id)
-import Control.Lens((%~), lens)
+import Control.Lens((%~), lens, (&))
 import Data.Bool(bool)
-import Data.Aviation.Casa.AbbreviationsAndAcronyms.Acronym(HasAcronym(acronym), Acronym)
+import Data.Char(toUpper)
+import Data.Aviation.Casa.AbbreviationsAndAcronyms.Acronym(HasAcronym(acronym), Acronym, name)
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Render(renderHeaderAcronyms, renderAcronyms)
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Colours(Colours, standardColours)
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Config(ConfigReader, Config(Config), runConfig)
@@ -27,7 +28,7 @@ import Data.Monoid(Monoid(mempty))
 import Data.Ord(Ord((>=), (>)), max, min)
 import Data.Semigroup((<>))
 import Data.String(String)
-import Data.Traversable(Traversable)
+import Data.Traversable(Traversable(traverse))
 import Options.Applicative(Parser, execParser, info, helper, fullDesc, header, option, maybeReader, short, long, value, help, switch, strOption)
 import Prelude(Show(show))
 import System.IO(IO, putStrLn)
@@ -39,7 +40,7 @@ main ::
 main =
   let execopts =
         execParser
-          (info ((parserOptions :: Parser (Options [] ShowAcronym)) <**> helper) (
+          (info (parserOptions <**> helper) (
             fullDesc <>
             header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms 0.0.3 <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
           )
@@ -53,7 +54,7 @@ main =
                             ExactMatch ->
                               fmap (\a -> ShowAcronym a "-") . maybeToList . ex
                             InexactMatch x ->
-                              fmap (\(Fuzzy o _ s) -> ShowAcronym o (show s)) . maybe id (\n -> filter (\(Fuzzy _ _ s) -> s >= n)) x . fz
+                              fmap (\(Fuzzy o _ s) -> ShowAcronym (o & name . traverse %~ toUpper) (show s)) . maybe id (\n -> filter (\(Fuzzy _ _ s) -> s >= n)) x . fz
                     in  match term
                   space =
                     foldr

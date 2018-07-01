@@ -1,3 +1,7 @@
+0.0.4
+
+* Make acronym name upper-case.
+
 0.0.3
 
 * Add -x|--max-results option.

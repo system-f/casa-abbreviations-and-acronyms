@@ -1,7 +1,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                  casa-abbreviations-and-acronyms
-version:               0.0.3
+version:               0.0.43
 synopsis:              CASA Abbreviations and Acronyms
 description:       
   <<http://i.imgur.com/uZnp9ke.png>>
