@@ -40,9 +40,9 @@ library
                        , containers        >= 0.5     && < 0.6
                        , fuzzy             >= 0.1.0.0 && < 0.2
                        , monoid-subclasses >= 0.4     && < 0.5
-                       , wreq
-                       , bytestring
-                       , these
+                       , wreq              >= 0.5     && < 0.6
+                       , bytestring        >= 0.10    && < 0.11
+                       , these             >= 0.7     && < 0.8
 
   hs-source-dirs:      src/library
 
