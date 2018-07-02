@@ -12,12 +12,23 @@ let
     sha256 = "04pmr9q70gakd327sywpxr7qp8jnl3b0y2sqxxxcj6zj2q45q38m";
   }) {};
 
+  these-github = pkgs.callPackage (pkgs.fetchFromGitHub {
+    owner = "isomorphism";
+    repo = "these";
+    rev = "1bbf84ea9dd6d44d5fae520aaf9c8d3f016a2054";
+    sha256 = "17gbi2c5d8mkvbfxxp3hq738p5cb5vcwzhpmcvfa9qawp7dsy5qc";
+  }) {};
+
   modifiedHaskellPackages = haskellPackages.override {
     overrides = self: super: {
       tasty-hedgehog =
         if super ? tasty-hedgehog
         then super.tasty-hedgehog
         else tasty-hedgehog-github;
+      these =
+        if super ? these
+        then super.these
+        else these-github;
     };
   };
 
