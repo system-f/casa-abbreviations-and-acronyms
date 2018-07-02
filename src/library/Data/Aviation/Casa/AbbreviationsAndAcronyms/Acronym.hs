@@ -384,7 +384,7 @@ allAcronyms =
       "Attorney-General's Department"
       ""
   , Acronym
-      "AGL "
+      "AGL"
       "Above Ground Level"
       "ICAO/AIP"
   , Acronym
@@ -445,7 +445,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "ALA"
-      "Aircraft Landing Area "
+      "Aircraft Landing Area"
       "AIP"
   , Acronym
       "ALA"
@@ -573,7 +573,7 @@ allAcronyms =
       "ICAO"
   , Acronym
       "ANO"
-      "Air Navigation Order "
+      "Air Navigation Order"
       ""
   , Acronym
       "ANS"
@@ -1124,7 +1124,7 @@ allAcronyms =
       "Civil Aviation Order"
       ""
   , Acronym
-      "CAR "
+      "CAR"
       "Civil Aviation Regulations 1988"
       ""
   , Acronym
@@ -1233,7 +1233,7 @@ allAcronyms =
       "ICAO"
   , Acronym
       "CGL"
-      " Circling guidance light(s)"
+      "Circling guidance light(s)"
       "ICAO"
   , Acronym
       "CH"
@@ -1589,7 +1589,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "DE"
-      "Form (used to preceed the call sign of the calling station) (to be used in AFS as a procedure signal)&lt;/em&gt;"
+      "Form (used to preceed the call sign of the calling station) (to be used in AFS as a procedure signal)"
       "ICAO/AIP"
   , Acronym
       "DEC"
@@ -2006,7 +2006,7 @@ allAcronyms =
   , Acronym
       "EVU"
       "Enforceable Voluntary Undertaking"
-      "Civil Aviation Act 1988 "
+      "Civil Aviation Act 1988"
   , Acronym
       "EXC"
       "Except"
@@ -2093,7 +2093,7 @@ allAcronyms =
       "ICAO"
   , Acronym
       "FD"
-      "Fault Detection "
+      "Fault Detection"
       ""
   , Acronym
       "FDE"
@@ -2229,7 +2229,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "FPL"
-      "Filed Flight Plan Message "
+      "Filed Flight Plan Message"
       "AIS"
   , Acronym
       "FPM"
@@ -2449,7 +2449,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "GNSS"
-      " Global navigation satellite system"
+      "Global navigation satellite system"
       "ICAO/AIP"
   , Acronym
       "GP"
@@ -2672,7 +2672,7 @@ allAcronyms =
       "Hold Short Lights"
       "AIS"
   , Acronym
-      "HUD "
+      "HUD"
       "Head Up Display"
       "AIS"
   , Acronym
@@ -3489,7 +3489,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "MPL"
-      "Multi-crew Pilot Licence "
+      "Multi-crew Pilot Licence"
       "ATA/FAR"
   , Acronym
       "MPS"
@@ -4013,12 +4013,12 @@ allAcronyms =
       "CASA"
   , Acronym
       "OTAC"
-      "Overseas Territories Aviation Circulars "
-      "Air Safety Support International (UK) "
+      "Overseas Territories Aviation Circulars"
+      "Air Safety Support International (UK)"
   , Acronym
       "OTAR"
       "Overseas Territories Aviation Requirements"
-      "Air Safety Support International (UK) "
+      "Air Safety Support International (UK)"
   , Acronym
       "OTLK"
       "Outlook (used in Sigmet messages for volcanic ash and tropical cyclones)"
@@ -4121,7 +4121,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "PDSE"
-      "Pre-departure Service Check "
+      "Pre-departure Service Check"
       "CASR Part 144"
   , Acronym
       "PEC"
@@ -4369,11 +4369,11 @@ allAcronyms =
       "AIS"
   , Acronym
       "RA-Aus"
-      "Recreational Aviation Australia "
+      "Recreational Aviation Australia"
       ""
   , Acronym
       "RAAA"
-      "Recreational Aviation Association of Australia "
+      "Recreational Aviation Association of Australia"
       "AIS"
   , Acronym
       "RAAO"
@@ -4781,7 +4781,7 @@ allAcronyms =
       ""
   , Acronym
       "SARPs"
-      "Standards and Recommended Practices "
+      "Standards and Recommended Practices"
       "ICAO"
   , Acronym
       "SARTIME"
@@ -4981,7 +4981,7 @@ allAcronyms =
       "CAR 1988"
   , Acronym
       "SOR"
-      "Summary of responses "
+      "Summary of responses"
       "CAR 1998"
   , Acronym
       "SOT"

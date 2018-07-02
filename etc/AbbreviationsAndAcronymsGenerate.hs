@@ -3,6 +3,7 @@ module AbbreviationsAndAcronymsGenerate where
 import qualified Data.ByteString.Lazy.Char8 as LazyChar8ByteString
 import Control.Lens
 import Control.Monad
+import Data.Char
 import Network.Wreq
 
 getAbbreviationPage ::
@@ -13,7 +14,6 @@ getAbbreviationPage x =
       let b = LazyChar8ByteString.unpack (q ^. responseBody)
       pure b
 
--- todo, fix "&#039;AY-CARS&#039;"
 getAcronyms ::
   [String]
   -> [Acronym]
@@ -34,7 +34,7 @@ getAcronyms (i1:a:i2:b:i3:c:i4:r) =
       replace_single_quote (h:t) =
         h:replace_single_quote t
       trim =
-        reverse . drop 15 . reverse . drop 12 . replace_single_quote
+        reverse . dropWhile isSpace . drop 15 . reverse . dropWhile isSpace . drop 12 . replace_single_quote
   in  if all (uncurry (==)) matches
         then
           Acronym
