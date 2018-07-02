@@ -22,8 +22,9 @@ import Data.Foldable(length, foldMap)
 import Data.Function(($))
 import Data.Functor(fmap)
 import Data.Int(Int)
+import Data.Monoid(Monoid(mappend, mempty))
 import Data.Ord(Ord, max, min)
-import Data.Semigroup
+import Data.Semigroup(Semigroup((<>)))
 import Data.String(String)
 import Prelude(Show)
 
