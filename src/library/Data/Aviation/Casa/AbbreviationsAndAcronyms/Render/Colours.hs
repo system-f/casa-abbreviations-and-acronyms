@@ -19,7 +19,8 @@ import Control.Category((.), id)
 import Control.Lens(Traversal', Lens')
 import Data.Functor(fmap, (<$>))
 import Data.List((++))
-import Data.Semigroup(Semigroup((<>)), Monoid(mappend, mempty))
+import Data.Monoid(Monoid(mappend, mempty))
+import Data.Semigroup(Semigroup((<>)))
 import Data.String(String)
 
 data Colours =
