@@ -2,6 +2,7 @@
 
 * Make acronym name upper-case.
 * base < 4.12.
+* Fix some imports to work on newer GHC.
 
 0.0.3
 
