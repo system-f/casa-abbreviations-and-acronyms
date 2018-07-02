@@ -1,3 +1,7 @@
+0.0.5
+
+* Remove leading and trailing space from acronym parts.
+
 0.0.4
 
 * Make acronym name upper-case.
