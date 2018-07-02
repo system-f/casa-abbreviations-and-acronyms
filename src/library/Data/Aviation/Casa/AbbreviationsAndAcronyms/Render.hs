@@ -101,8 +101,10 @@ renderAcronym a =
                               a1 `k` a2)
                   m
                   n
+              sep =
+                chc (replicate shc '|')
               spacers a1 a2 =
-                a1 ++ chc (replicate shc '|') ++ a2
+                a1 ++ sep ++ a2
               column4 =
                 let hn' =
                       chn (replicate shn ' ')
@@ -115,8 +117,8 @@ renderAcronym a =
                     column12 =
                       alignWidth spacers (chn <$> name'') (chm <$> meaning'') hn' hm'
                     column3 =
-                      alignWidth spacers column12 (chs <$> source'') (hn' ++ hm') hs'
-                in  alignWidth spacers column3 (chr <$> score'') (hn' ++ hm' ++ hs') hr'
+                      alignWidth spacers column12 (chs <$> source'') (hn' ++ sep ++ hm') hs'
+                in  alignWidth spacers column3 (chr <$> score'') (hn' ++ sep ++ hm' ++ sep ++ hs') hr'
           pure (newlines column4)
 
 renderAcronyms ::

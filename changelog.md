@@ -1,6 +1,8 @@
 0.0.5
 
 * Remove leading and trailing space from acronym parts.
+* Fix bug with spacing.
+* Fix bug with upper-case output on exact match.
 
 0.0.4
 

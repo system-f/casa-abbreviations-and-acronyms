@@ -42,7 +42,7 @@ main =
         execParser
           (info (parserOptions <**> helper) (
             fullDesc <>
-            header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms 0.0.3 <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
+            header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms 0.0.5 <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
           )
         )
   in  do  opts <- execopts
@@ -50,11 +50,12 @@ main =
             Options clrs rndr maxr (MatchField fz ex) typ (FieldSpacing mn xn mm xm ms xs mr xr) term ->
               let acro =
                     let match =
-                          case typ of
-                            ExactMatch ->
-                              fmap (\a -> ShowAcronym a "-") . maybeToList . ex
-                            InexactMatch x ->
-                              fmap (\(Fuzzy o _ s) -> ShowAcronym (o & name . traverse %~ toUpper) (show s)) . maybe id (\n -> filter (\(Fuzzy _ _ s) -> s >= n)) x . fz
+                          fmap (\o -> (o & name . traverse %~ toUpper)) .
+                            case typ of
+                              ExactMatch ->
+                                fmap (\a -> ShowAcronym a "-") . maybeToList . ex
+                              InexactMatch x ->
+                                fmap (\(Fuzzy o _ s) -> ShowAcronym o (show s)) . maybe id (\n -> filter (\(Fuzzy _ _ s) -> s >= n)) x . fz
                     in  match term
                   space =
                     foldr
