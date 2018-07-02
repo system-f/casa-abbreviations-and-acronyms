@@ -25,7 +25,10 @@ let
         if super ? tasty-hedgehog
         then super.tasty-hedgehog
         else tasty-hedgehog-github;
-      these = these-github;
+      these =
+         if super ? these
+         then super.these
+         else these-github;
     };
   };
 
