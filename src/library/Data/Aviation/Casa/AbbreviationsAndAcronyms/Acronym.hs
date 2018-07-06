@@ -1,12 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE FlexibleInstances #-}
 
-module Data.Aviation.Casa.AbbreviationsAndAcronyms.Acronym(
-  Acronym(..)
-, HasAcronym(..)
-, acronymValues
-, allAcronyms
-) where
+module Data.Aviation.Casa.AbbreviationsAndAcronyms.Acronym where
 
 import Control.Applicative((<*>))
 import Control.Category((.), id)

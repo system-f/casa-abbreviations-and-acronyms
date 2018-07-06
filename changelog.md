@@ -1,6 +1,7 @@
 0.0.6
 
 * fix extraneous spaces.
+* export each acronym.
 
 0.0.5
 
