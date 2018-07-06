@@ -1,3 +1,7 @@
+0.0.6
+
+* fix extraneous spaces.
+
 0.0.5
 
 * Remove leading and trailing space from acronym parts.

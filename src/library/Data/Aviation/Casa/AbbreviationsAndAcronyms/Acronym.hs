@@ -197,7 +197,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "ACJ-XXX"
-      "Advisory Circular Joint (issued by the JAA, can be followed by a  country code)"
+      "Advisory Circular Joint (issued by the JAA, can be followed by a country code)"
       "JAA"
   , Acronym
       "ACK"
@@ -821,7 +821,7 @@ allAcronyms =
       ""
   , Acronym
       "AT-VASIS"
-      "Abbreviated 'T' Visual Approach Slope Indicator System (pronounced             'AY-TEE-VASIS')"
+      "Abbreviated 'T' Visual Approach Slope Indicator System (pronounced 'AY-TEE-VASIS')"
       "AIS"
   , Acronym
       "AT..."
@@ -1149,7 +1149,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "CAVOK"
-      "Visibility, cloud and present weather better than prescribed values               or conditions"
+      "Visibility, cloud and present weather better than prescribed values or conditions"
       "AIS"
   , Acronym
       "CB"
@@ -1165,7 +1165,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "CCA"
-      "Corrected meteorological message (for CCB, CCC..etc., in sequence)               (message type designator)"
+      "Corrected meteorological message (for CCB, CCC..etc., in sequence) (message type designator)"
       "ICAO"
   , Acronym
       "CCF"
@@ -1453,7 +1453,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "CSDD"
-      "Common Support Data Dictionary published by the Air Transport Association of America (ATA).  The CSDD replaces the WATOG."
+      "Common Support Data Dictionary published by the Air Transport Association of America (ATA). The CSDD replaces the WATOG."
       ""
   , Acronym
       "CSU"
@@ -1525,7 +1525,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "D"
-      "Downward (tendency in RVR (Runway visual range) during previous               10 minutes)"
+      "Downward (tendency in RVR (Runway visual range) during previous 10 minutes)"
       "ICAO"
   , Acronym
       "D-ATIS"
@@ -1877,7 +1877,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "EMBD"
-      "Embedded in a Layer (to indicate cumulonimbus embedded in layers               of other clouds)"
+      "Embedded in a Layer (to indicate cumulonimbus embedded in layers of other clouds)"
       "AIS"
   , Acronym
       "EMERG"
@@ -2077,7 +2077,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "FBL"
-      "Light (used to indicate the intensity of WX phenomena, interference               or static reports, eg BL RA = light rain)"
+      "Light (used to indicate the intensity of WX phenomena, interference or static reports, eg BL RA = light rain)"
       "AIS"
   , Acronym
       "FC"
@@ -2689,7 +2689,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "HVY"
-      "Heavy (used to indicate the intensity of WX phenomena, eg HVY               RA = heavy rain)"
+      "Heavy (used to indicate the intensity of WX phenomena, eg HVY RA = heavy rain)"
       "AIS"
   , Acronym
       "HX"
@@ -3309,7 +3309,7 @@ allAcronyms =
       "CASA"
   , Acronym
       "MCQFS"
-      "Manual of criteria for the qualification of flight simulators               ICAO Doc 9625-AN/938"
+      "Manual of criteria for the qualification of flight simulators ICAO Doc 9625-AN/938"
       ""
   , Acronym
       "MCUR"
@@ -3345,7 +3345,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "MERSITAB"
-      "Manufacturing, Engineering and Related Services Industry Training               Advisory Body"
+      "Manufacturing, Engineering and Related Services Industry Training Advisory Body"
       "AIS"
   , Acronym
       "MET"
@@ -3357,7 +3357,7 @@ allAcronyms =
       "CASR Part 66"
   , Acronym
       "METAR"
-      "Aviation routine weather report (in aeronautical meteorological               code)"
+      "Aviation routine weather report (in aeronautical meteorological code)"
       "AIS"
   , Acronym
       "METRAD"
@@ -4841,7 +4841,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "SEA"
-      "Sea (used in connection with sea-surface temperature and state               of the sea)"
+      "Sea (used in connection with sea-surface temperature and state of the sea)"
       "CAR 1998"
   , Acronym
       "SEACO"
@@ -4885,7 +4885,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "SH..."
-      "Showers (followed by RA=rain, SN=snow, PL=ice pellets, GR=hail,               GS=small hail and/or snow pellets or combinations thereof, eg, SHRASN               = showers of rain and snow)"
+      "Showers (followed by RA=rain, SN=snow, PL=ice pellets, GR=hail, GS=small hail and/or snow pellets or combinations thereof, eg, SHRASN = showers of rain and snow)"
       "AIS"
   , Acronym
       "SHF"
@@ -4909,7 +4909,7 @@ allAcronyms =
       "ICAO/AIP"
   , Acronym
       "SIGMET"
-      "Information concerning en route weather phenomena which may affect               the safety of aircraft operations"
+      "Information concerning en route weather phenomena which may affect the safety of aircraft operations"
       "AIS"
   , Acronym
       "SIL"
@@ -4961,7 +4961,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "SNOWTAM"
-      "A special series NOTAM notifying the presence or removal of hazardous               conditions due to snow, ice, slush or standing water associated               with snow, slush and ice on the movement area"
+      "A special series NOTAM notifying the presence or removal of hazardous conditions due to snow, ice, slush or standing water associated with snow, slush and ice on the movement area"
       "CAR 1998"
   , Acronym
       "SOC"
@@ -5453,7 +5453,7 @@ allAcronyms =
       ""
   , Acronym
       "TS..."
-      "Thunderstorm (followed by RA=rain, SN=snow, PE=ice pellets, GR=hail,               GS=small hail and/or snow pellets or combinations thereof, eg TSRASN               = thunderstorm with rain and snow)"
+      "Thunderstorm (followed by RA=rain, SN=snow, PE=ice pellets, GR=hail, GS=small hail and/or snow pellets or combinations thereof, eg TSRASN = thunderstorm with rain and snow)"
       "AIS"
   , Acronym
       "TSI"
@@ -5629,7 +5629,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "VC"
-      "Vicinity of the aerodrome (followed by FG=fog, FC=funnel cloud,               PO=dust/sand whirls, BLDU=blowing dust, BLSA=blowing sand or BLSN=blowing               snow; eg, VCFG=vicinity fog"
+      "Vicinity of the aerodrome (followed by FG=fog, FC=funnel cloud, PO=dust/sand whirls, BLDU=blowing dust, BLSA=blowing sand or BLSN=blowing snow; eg, VCFG=vicinity fog"
       "AIS"
   , Acronym
       "VCY"
@@ -5833,7 +5833,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "WAC"
-      "World Aeronautical Chart  ICAO 1:1,000,000 (followed by name/title)"
+      "World Aeronautical Chart ICAO 1:1,000,000 (followed by name/title)"
       ""
   , Acronym
       "WAFC"
@@ -5897,7 +5897,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "WIND"
-      "Wind (used in connection with direction and speed) WINTEM Forecast               upper wind and temperature at specified points (in aeronautical               met code)"
+      "Wind (used in connection with direction and speed) WINTEM Forecast upper wind and temperature at specified points (in aeronautical met code)"
       "AIS"
   , Acronym
       "WIP"

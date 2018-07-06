@@ -5,6 +5,7 @@ import Control.Lens
 import Control.Monad
 import Data.Char
 import Network.Wreq
+import System.Environment
 
 getAbbreviationPage ::
   String
@@ -13,6 +14,9 @@ getAbbreviationPage x =
   do  q <- get ("http://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms?page=" ++ x)
       let b = LazyChar8ByteString.unpack (q ^. responseBody)
       pure b
+
+trim' =
+         escapeChars . reverse . dropWhile isSpace . drop 15 . reverse . dropWhile isSpace . drop 12
 
 getAcronyms ::
   [String]
@@ -27,14 +31,8 @@ getAcronyms (i1:a:i2:b:i3:c:i4:r) =
         , (i3, "                  <td class=\"views-field views-field-field-source\" >")
         , (i4, "              </tr>")
         ]
-      replace_single_quote [] =
-        []
-      replace_single_quote ('&':'#':'0':'3':'9':';':s) =
-        '\'':replace_single_quote s
-      replace_single_quote (h:t) =
-        h:replace_single_quote t
       trim =
-        reverse . dropWhile isSpace . drop 15 . reverse . dropWhile isSpace . drop 12 . replace_single_quote
+         escapeChars . reverse . dropWhile isSpace . drop 15 . reverse . dropWhile isSpace . drop 12
   in  if all (uncurry (==)) matches
         then
           Acronym
@@ -100,4 +98,34 @@ render acrs =
           , "  ]\n"
           ]
   in  allAcronyms
-      
+
+escapeChars ::
+  String
+  -> String
+escapeChars =
+  transform
+    (\x ->  case x of
+              '&':'#':'0':'3':'9':';':r ->
+                '\'':r
+              h:t ->
+                if isSpace h
+                  then
+                    h : dropWhile isSpace t
+                  else
+                    x
+              _ ->
+                x
+              )
+
+main ::
+  IO ()
+main =
+  do  a <- getArgs
+      let n =
+            case a of
+              [] ->
+                [0..49]
+              q@(_:_) ->
+                read <$> q
+      c <- requestAcronyms n
+      writeFile "acronyms.hs" (render c)
