@@ -15,9 +15,6 @@ getAbbreviationPage x =
       let b = LazyChar8ByteString.unpack (q ^. responseBody)
       pure b
 
-trim' =
-         escapeChars . reverse . dropWhile isSpace . drop 15 . reverse . dropWhile isSpace . drop 12
-
 getAcronyms ::
   [String]
   -> [Acronym]
