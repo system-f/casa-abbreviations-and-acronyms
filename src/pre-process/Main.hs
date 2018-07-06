@@ -1,4 +1,4 @@
-module AbbreviationsAndAcronymsGenerate where
+module Main where
 
 import qualified Data.ByteString.Lazy.Char8 as LazyChar8ByteString
 import Control.Lens
