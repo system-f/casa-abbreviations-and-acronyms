@@ -1,3 +1,7 @@
+0.0.7
+
+* The same acronym for multiple exact results.
+
 0.0.6
 
 * fix extraneous spaces.

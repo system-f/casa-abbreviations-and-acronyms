@@ -23,7 +23,7 @@ import Data.Function(($))
 import Data.Functor((<$>), fmap)
 import Data.Int(Int)
 import Data.List(filter, take)
-import Data.Maybe(Maybe(Just, Nothing), maybe, maybeToList)
+import Data.Maybe(Maybe(Just, Nothing), maybe)
 import Data.Monoid(Monoid(mempty))
 import Data.Ord(Ord((>=), (>)), max, min)
 import Data.Semigroup((<>))
@@ -53,7 +53,7 @@ main =
                           fmap (\o -> (o & name . traverse %~ toUpper)) .
                             case typ of
                               ExactMatch ->
-                                fmap (\a -> ShowAcronym a "-") . maybeToList . ex
+                                fmap (\a -> ShowAcronym a "-") . ex
                               InexactMatch x ->
                                 fmap (\(Fuzzy o _ s) -> ShowAcronym o (show s)) . maybe id (\n -> filter (\(Fuzzy _ _ s) -> s >= n)) x . fz
                     in  match term
@@ -101,11 +101,11 @@ instance HasShowScore ShowAcronym where
 data MatchField =
   MatchField
     (String -> [Fuzzy Acronym String])
-    (String -> Maybe Acronym)
+    (String -> [Acronym])
 
 matchField' ::
   (String -> String -> String -> Bool -> [Fuzzy Acronym String])
-  -> (String -> Maybe Acronym)
+  -> (String -> [Acronym])
   -> MatchField
 matchField' f g =
   MatchField (\s -> f s "" "" False) g

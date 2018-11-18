@@ -31,74 +31,78 @@ import Data.Function(($))
 import Data.Functor((<$>), fmap)
 import Data.List(sortBy, filter)
 import Data.Map(Map)
-import qualified Data.Map as Map(fromList, lookup, insertWith, toList)
-import Data.Maybe(Maybe)
+import qualified Data.Map as Map(fromList, fromListWith, lookup, insertWith, toList)
+import Data.Maybe(Maybe(Just, Nothing))
 import Data.Ord(Ord((>)), compare)
+import Data.Semigroup((<>))
 import Data.String(String)
 import Data.Monoid.Textual(TextualMonoid)
 import qualified Text.Fuzzy as Fuzzy(filter, score)
 import Text.Fuzzy(Fuzzy(Fuzzy))
+import Data.List.NonEmpty(NonEmpty((:|)))
 
 all_Acronym_name_index ::
-  Map String (String, String)
+  Map String (NonEmpty (String, String))
 all_Acronym_name_index =
-  Map.fromList ((\(Acronym _name _meaning _src) -> (_name, (_meaning, _src))) <$> allAcronyms)
+  Map.fromListWith (<>) (((\(Acronym _name _meaning _src) -> (_name, (_meaning, _src) :| [])) <$> allAcronyms))
 
 all_Acronym_meaning_index ::
-  Map String (String, String)
+  Map String (NonEmpty (String, String))
 all_Acronym_meaning_index =
-  Map.fromList ((\(Acronym _name _meaning _src) -> (_meaning, (_name, _src))) <$> allAcronyms)
+  Map.fromListWith (<>) (((\(Acronym _name _meaning _src) -> (_meaning, (_name, _src) :| [])) <$> allAcronyms))
 
 all_Acronym_source_index ::
-  Map String (String, String)
+  Map String (NonEmpty (String, String))
 all_Acronym_source_index =
-  Map.fromList ((\(Acronym _name _meaning _src) -> (_src, (_name, _meaning))) <$> allAcronyms)
+  Map.fromListWith (<>) (((\(Acronym _name _meaning _src) -> (_src, (_name, _meaning) :| [])) <$> allAcronyms))
 
 searchIndexName ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexName s =
   let s' = filter isAlpha . fmap toUpper $ s
-  in  (\(_meaning, _src) -> Acronym s _meaning _src) <$> Map.lookup s' all_Acronym_name_index
+  in  maybeNE (((\(_meaning, _src) -> Acronym s _meaning _src) <$>) <$> Map.lookup s' all_Acronym_name_index)
 
 searchIndexMeaning ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexMeaning s =
   let s' = filter isAlpha . fmap toUpper $ s
-  in  (\(_name, _src) -> Acronym _name s _src) <$> Map.lookup s' all_Acronym_meaning_index
+  in  maybeNE (((\(_name, _src) -> Acronym _name s _src) <$>) <$> Map.lookup s' all_Acronym_meaning_index)
 
 searchIndexSource ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexSource s =
   let s' = filter isAlpha . fmap toUpper $ s
-  in  (\(_name, _meaning) -> Acronym s _name _meaning) <$> Map.lookup s' all_Acronym_source_index
-
+  in  maybeNE (((\(_name, _meaning) -> Acronym s _name _meaning) <$>) <$> Map.lookup s' all_Acronym_source_index)
+  
 searchIndexNameMeaning ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexNameMeaning s =
   searchIndexName s <|> searchIndexMeaning s
-  
+
 searchIndexNameSource ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexNameSource s =
   searchIndexName s <|> searchIndexSource s
 
 searchIndexMeaningSource ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexMeaningSource s =
   searchIndexMeaning s <|> searchIndexSource s
-
+  
 searchIndexNameMeaningSource ::
   String
-  -> Maybe Acronym
+  -> [Acronym]
 searchIndexNameMeaningSource s =
   searchIndexName s <|> searchIndexMeaning s <|> searchIndexSource s
   
+----
+
 searchFuzzyName ::
   String
   -> String
@@ -181,3 +185,13 @@ filterN pattern values before after (e:es) cas =
                               in foldl' (\m' (Fuzzy o r s) -> Map.insertWith (\(s1, i1) (s2, i2) ->
                                     if i2 > i1 then (s2, i2) else (s1, i1)) o (r, s) m') m x2) x1' es
   in  sortBy (\f1 f2 -> Fuzzy.score f2 `compare` Fuzzy.score f1) ((\(o, (r, s)) -> Fuzzy o r s) <$> Map.toList x2')
+
+----
+
+maybeNE ::
+  Maybe (NonEmpty a)
+  -> [a]
+maybeNE Nothing =
+  []
+maybeNE (Just (h :| t)) =
+  h:t
