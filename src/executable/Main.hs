@@ -1,4 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE CPP #-}
 
 module Main(
   main
@@ -42,7 +43,7 @@ main =
         execParser
           (info (parserOptions <**> helper) (
             fullDesc <>
-            header "casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms 0.0.5 <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>"
+            header ("casa-abbreviations-and-acronyms for searching CASA abbreviations and acronyms " <> VERSION_casa_abbreviations_and_acronyms <> " <https://www.casa.gov.au/about-us/standard-page/aviation-abbreviations-and-acronyms>")
           )
         )
   in  do  opts <- execopts

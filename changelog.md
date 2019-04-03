@@ -1,3 +1,7 @@
+0.0.8
+
+* Use VERSION macro to print version.
+
 0.0.7
 
 * The same acronym for multiple exact results.
