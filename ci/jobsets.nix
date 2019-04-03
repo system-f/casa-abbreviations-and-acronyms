@@ -18,7 +18,7 @@
             "keepnr": 5,
             "inputs": {
                 "casa-abbreviations-and-acronyms": { "type": "git", "value": "https://github.com/qfpl/casa-abbreviations-and-acronyms", "emailresponsible": false },
-                "nixpkgs": { "type": "git", "value": "https://github.com/NixOS/nixpkgs.git release-17.09", "emailresponsible": false }
+                "nixpkgs": { "type": "git", "value": "https://github.com/NixOS/nixpkgs.git release-18.09", "emailresponsible": false }
             }
         }
     }
