@@ -35,9 +35,9 @@ library
                        , Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Spacing
                        , Data.Aviation.Casa.AbbreviationsAndAcronyms.Search
                        
-  build-depends:         base              >= 4.8     && < 4.12
-                       , lens              >= 4.15    && < 4.17
-                       , containers        >= 0.5     && < 0.6
+  build-depends:         base              >= 4.8     && < 5
+                       , lens              >= 4.15    && < 4.19
+                       , containers        >= 0.5     && < 0.7
                        , fuzzy             >= 0.1.0.0 && < 0.2
                        , monoid-subclasses >= 0.4     && < 0.5
                        , wreq              >= 0.5     && < 0.6
@@ -51,10 +51,10 @@ library
   ghc-options:         -Wall
 
 executable pre-process-casa-abbreviations-and-acronyms                       
-  build-depends:         base              >= 4.8     && < 4.12
+  build-depends:         base              >= 4.8     && < 5
                        , wreq              >= 0.5     && < 0.6
-                       , lens              >= 4.15    && < 4.17
-                       , containers        >= 0.5     && < 0.6
+                       , lens              >= 4.15    && < 4.19
+                       , containers        >= 0.5     && < 0.7
                        , fuzzy             >= 0.1.0.0 && < 0.2
                        , monoid-subclasses >= 0.4     && < 0.5
                        , wreq              >= 0.5     && < 0.6
@@ -75,8 +75,8 @@ executable casa-abbreviations-and-acronyms
 
   main-is:             Main.hs
 
-  build-depends:        base                 >= 4.8     && < 4.12
-                      , lens                 >= 4.15    && < 4.17
+  build-depends:        base                 >= 4.8     && < 5
+                      , lens                 >= 4.15    && < 4.19
                       , fuzzy                >= 0.1.0.0 && < 0.2
                       , optparse-applicative >= 0.13.2  && < 0.15
                       , casa-abbreviations-and-acronyms
