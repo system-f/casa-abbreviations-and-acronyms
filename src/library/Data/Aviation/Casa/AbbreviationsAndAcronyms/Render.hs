@@ -12,7 +12,7 @@ import Control.Applicative(pure)
 import Control.Category((.))
 import Control.Lens((^.), transform)
 import Control.Monad((>>=))
-import Data.Align(Align(alignWith))
+import Data.Align(Semialign(alignWith))
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Acronym
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Config(ConfigReader, readHeadingSeparatorColours, readSeparatorSpacing, readHeadingNameColours, readNameSpacing, readHeadingMeaningColours, readMeaningSpacing, readHeadingSourceColours, readSourceSpacing, readHeadingScoreColours, readScoreSpacing, readAcronymSeparatorColours, readAcronymNameColours, readAcronymMeaningColours, readAcronymSourceColours, readAcronymScoreColours)
 import Data.Aviation.Casa.AbbreviationsAndAcronyms.Render.Score(HasShowScore(showScore))
@@ -83,7 +83,7 @@ renderAcronym a =
               score'' =
                 spacesplit shr score'
               alignWidth ::
-                Align f =>
+                Semialign f =>
                 (String -> String -> a)
                 -> f String
                 -> f String
