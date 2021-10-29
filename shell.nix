@@ -1,7 +1,10 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "default" }:
-let
-  inherit (nixpkgs) pkgs;
-  drv = import ./default.nix { inherit nixpkgs compiler; };
-  drvWithTools = pkgs.haskell.lib.addBuildDepends drv [ pkgs.cabal-install ];
-in
-  if pkgs.lib.inNixShell then drvWithTools.env else drvWithTools
+(import (
+  let
+    lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+  in fetchTarball {
+    url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
+    sha256 = lock.nodes.flake-compat.locked.narHash;
+  }
+) {
+  src =  ./.;
+}).shellNix
