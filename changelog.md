@@ -1,3 +1,7 @@
+0.0.9
+
+* Update dependencies
+
 0.0.8
 
 * Use VERSION macro to print version.
