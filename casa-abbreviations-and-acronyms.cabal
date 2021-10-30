@@ -40,7 +40,6 @@ library
                        , containers        >= 0.5     && < 0.7
                        , fuzzy             >= 0.1.0.0 && < 0.2
                        , monoid-subclasses >= 1.1     && < 1.2
-                       , wreq              >= 0.5     && < 0.6
                        , bytestring        >= 0.10    && < 0.12
                        , semialign         >= 1       && < 1.3
                        , these             >= 1.1     && < 1.2
@@ -53,14 +52,18 @@ library
   ghc-options:         -Wall
 
 executable pre-process-casa-abbreviations-and-acronyms
-  build-depends:         base
-                       , wreq              >= 0.5     && < 0.6
-                       , lens
-                       , containers
-                       , fuzzy
-                       , monoid-subclasses
-                       , wreq
-                       , bytestring
+  if impl(ghcjs)
+    buildable: False
+  else
+    buildable: True
+
+    build-depends:         base
+                         , lens
+                         , containers
+                         , fuzzy
+                         , monoid-subclasses
+                         , wreq              >= 0.5     && < 0.6
+                         , bytestring
 
   main-is:             Main.hs
 
@@ -71,16 +74,21 @@ executable pre-process-casa-abbreviations-and-acronyms
   ghc-options:         -Wall
 
 executable casa-abbreviations-and-acronyms
-  default-language:    Haskell2010
+  if impl(ghcjs)
+    buildable: False
+  else
+    buildable: True
 
-  hs-source-dirs:      src/executable
+    build-depends:        base
+                        , lens
+                        , fuzzy
+                        , optparse-applicative >= 0.13.2  && < 0.17
+                        , casa-abbreviations-and-acronyms
 
   main-is:             Main.hs
 
-  build-depends:        base
-                      , lens
-                      , fuzzy
-                      , optparse-applicative >= 0.13.2  && < 0.17
-                      , casa-abbreviations-and-acronyms
+  hs-source-dirs:      src/executable
+
+  default-language:    Haskell2010
 
   ghc-options:         -Wall
