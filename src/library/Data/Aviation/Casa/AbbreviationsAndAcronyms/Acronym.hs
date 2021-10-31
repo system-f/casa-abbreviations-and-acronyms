@@ -348,7 +348,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "AFRU"
-      "Aerodrome Frequency Response Unit (also known as a &quot;beepback&quot; unit)"
+      "Aerodrome Frequency Response Unit (also known as a \"beepback\" unit)"
       "AIS"
   , Acronym
       "AFS"
