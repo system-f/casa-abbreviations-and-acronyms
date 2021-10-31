@@ -5324,7 +5324,7 @@ allAcronyms =
       "AIS"
   , Acronym
       "TGL"
-      "Touch &amp; Go Landing"
+      "Touch & Go Landing"
       "AIS"
   , Acronym
       "TGS"
